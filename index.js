@@ -5,3 +5,25 @@ const characters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
     "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "~", "`", "!", "@",
     "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "{", "[",
     "}", "]", ",", "|", ":", ";", "<", ">", ".", "?", "/"];
+
+let count = 0;
+
+document.getElementById('generate-passwords')
+    .addEventListener('click', (e) => {
+        let randomCharacters = 0;
+        count++;
+
+        if (count > 1) {
+            document.querySelector('.first-password').textContent = '';
+            document.querySelector('.second-password').textContent = '';
+        }
+        for (let i = 0; i < 15; i++) {
+            randomCharacters = (Math.floor(Math.random() * characters.length));
+            document.querySelector('.first-password').textContent += characters[randomCharacters];
+        }
+
+        for (let i = 0; i < 15; i++) {
+            randomCharacters = (Math.floor(Math.random() * characters.length));
+            document.querySelector('.second-password').textContent += characters[randomCharacters];
+        }
+    });
